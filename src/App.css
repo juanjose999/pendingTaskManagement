@@ -1,0 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100vw;
+    min-height: 100dvh;
+    box-sizing: border-box;
+}
+body {
+    font-family: 'Press Start 2P', monospace;
+    color: greenyellow;
+    background: rgb(6, 3, 29); /* Aseguramos el fondo oscuro general */
+}

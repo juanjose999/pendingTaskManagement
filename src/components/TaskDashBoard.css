@@ -1,0 +1,836 @@
+
+* {
+    box-sizing: border-box;
+}
+/* Obliga al navegador a usar el esquema oscuro en todo el documento para componentes nativos */
+:root {
+  color-scheme: dark;
+}
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.btn_crear{
+    background:greenyellow;
+    color: rgb(0, 0, 0);
+    font-weight: 800;
+}
+.container {
+    background: rgb(6, 3, 29);
+    min-width: 100%;
+    min-height: 100%;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(243, 239, 239, 0.861);
+}
+
+/* Modificamos el formulario para que sirva de contenedor de referencia */
+.container-form form.form-con-cierre {
+    position: relative; /* Clave para que el botón absoluto se posicione respecto al form */
+}
+
+/* Estilo para el botón flotante en la esquina superior derecha */
+.btn-cancelar-absolute {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    width: auto !important; /* Sobrescribe el width: 100% que tenías en los botones generales */
+    padding: 0.5em 0.8em !important;
+    background: transparent;
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s;
+}
+select {
+    background: none;
+    color: greenyellow;
+    padding: 1em;
+}
+select option {
+    background: none;
+}
+.container-form select option:hover,
+.container-form select option:checked {
+    background: rgb(40, 65, 40); /* Un verde un poco más claro para resaltar */
+    color: white;
+}
+
+
+.btn-cancelar-absolute:hover {
+    background: rgba(204, 9, 9, 0.651);
+}
+
+/* Forzar el esquema de color oscuro nativo del navegador para formularios y selects */
+select {
+    color-scheme: dark; /* Esto obliga a muchos navegadores a poner el menú desplegable en oscuro */
+}
+
+/* Estilo para la caja principal del select */
+.container-form select {
+    width: 100%;
+    padding: 1em;
+    background: rgb(24, 37, 24) !important;
+    color: greenyellow !important;
+    border: 1px solid rgba(0, 0, 0, 0.3);
+    border-radius: 0.5em;
+    font-family: inherit;
+    cursor: pointer;
+}
+
+/* Estilo forzado para las opciones desplegables */
+.container-form select option {
+    background-color: rgb(24, 37, 24) !important;
+    color: greenyellow !important;
+    padding: 12px;
+}
+
+.container_time {
+    width: 100%;
+    display: flex;
+    gap: 10px;
+}
+.container-tasks{
+    width: 100%;
+    height:100%;
+    position: absolute;
+    background: rgb(6, 3, 29);
+}
+
+.container-form{
+    width: 100%;
+    min-height: 100dvh;
+    inset: 0;
+    position: relative;
+    z-index: 100;
+    background: rgba(0, 0, 0, 0.465);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+.options-container__input {
+    width: 70%;
+}
+.options-container__btn{
+    display: flex;
+    gap: 1em;
+    width: 30%;
+    & button {
+        width: 100%;
+        height: 100%;
+    }
+}
+.options {
+    display: flex;
+    gap: 1em;
+    padding: 0em 1em 0em 1em;
+    justify-content: space-between;
+    & input {
+        padding: 0.6em;
+        width: 100%;
+    }
+}
+.container-tasks header {
+    padding: 0em 1em 0em 1em;
+}
+.container-task__list{
+    padding: 1em;
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+.container-form textarea {
+    width: 100%;
+    height: 70%;
+    padding: 1em;
+    color: black;
+    resize: none;
+}
+
+
+.container-form form {
+    min-width: 40%;
+    max-width: 1200px;
+    height: 80%;
+    position: absolute;
+    padding: 3em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    
+    align-items: center;
+    background: rgb(24 37 24);
+    border-radius: 1em;
+    gap: 1em;
+
+    & input {
+        width: 100%;
+        padding: 1em;
+    }
+
+    & button {
+        width: 100%;
+        padding: 1em;
+    }
+}
+
+.container-inputs__check{
+    width: 100%;
+    display: flex;
+}
+.nuclear-button{
+    position: relative;
+    padding: 12px 24px;
+    color: #dddddd85;
+    font-family: "Courier New", monospace;
+    font-size: 14px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    cursor: pointer;
+    background: none;
+    border: none;
+    transition: all 0.1s ease;
+
+}
+
+
+.nuclear-button-active{
+    position: relative;
+    padding: 12px 24px;
+    color: #dddddd;
+    font-family: "Courier New", monospace;
+    font-size: 14px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    cursor: pointer;
+    border: none;
+    background: rgba(172, 255, 47, 0.897);
+    transition: all 0.1s ease;
+    color: black;
+    font-weight: 600;
+}
+
+.daily-summary {
+    margin: 20px 0;
+
+    padding: 16px;
+
+
+    box-shadow:
+        inset 0 0 0 2px #0a0a0a,
+        4px 4px 0 #050505;
+
+    font-family: "Courier New", monospace;
+}
+
+.daily-summary__header {
+    display: flex;
+    justify-content: space-between;
+
+    padding-bottom: 8px;
+
+    border-bottom: 1px dashed #555;
+}
+
+.daily-summary__system {
+    font-size: 11px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    color: greenyellow;
+}
+
+.daily-summary__date {
+    font-size: 11px;
+    color: #888;
+}
+
+.daily-summary__title {
+    margin: 14px 0;
+
+    font-size: 14px;
+    font-weight: bold;
+
+    letter-spacing: 2px;
+
+    color: #ccc;
+}
+
+.daily-summary__stats {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 10px;
+}
+
+.daily-summary__item {
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    padding: 12px 8px;
+
+
+
+    border: 1px solid #444;
+
+}
+
+.daily-summary__label {
+    font-size: 9px;
+
+    letter-spacing: 1px;
+
+    color: #888;
+
+    text-align: center;
+}
+
+.daily-summary__value {
+    margin-top: 6px;
+
+    font-size: 28px;
+
+    font-weight: bold;
+
+    color: #ddd;
+
+    text-shadow: 0 0 4px #aaa;
+}
+
+/* =====================================================
+   FORMULARIO - CONSOLA NUCLEAR 80s
+===================================================== */
+
+.container-form {
+    position: fixed;
+    inset: 0;
+
+    z-index: 1000;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 20px;
+
+    background: rgba(0, 0, 0, 0.82);
+
+    backdrop-filter: blur(3px);
+}
+
+
+/* =====================================================
+   PANEL
+===================================================== */
+
+.form-con-cierre {
+    position: relative;
+
+    width: min(620px, 100%);
+
+    max-height: 90vh;
+
+    overflow-y: auto;
+
+    padding: 32px;
+
+    box-sizing: border-box;
+
+    background:
+        linear-gradient(
+            145deg,
+            #292929,
+            #151515 60%,
+            #0d0d0d
+        );
+
+    border: 2px solid #555;
+
+    box-shadow:
+        inset 0 0 0 2px #111,
+        inset 0 0 25px rgba(0, 0, 0, 0.8),
+        8px 8px 0 #050505,
+        0 0 30px rgba(0, 0, 0, 0.8);
+
+    font-family: "Courier New", monospace;
+}
+
+
+/* =====================================================
+   LÍNEA SUPERIOR DECORATIVA
+===================================================== */
+
+.form-con-cierre::before {
+    content: "";
+
+    position: absolute;
+
+    top: 10px;
+    left: 10px;
+    right: 10px;
+
+    height: 2px;
+
+    background: #555;
+
+    box-shadow:
+        0 1px 0 #111;
+}
+
+
+/* =====================================================
+   INDICADOR DEL SISTEMA
+===================================================== */
+
+.form-con-cierre::after {
+    content: "● SYSTEM INPUT";
+
+    position: absolute;
+
+    top: 14px;
+    left: 32px;
+
+    font-size: 10px;
+
+    font-weight: bold;
+
+    letter-spacing: 2px;
+
+    color: #ff2a00;
+
+    text-shadow:
+        0 0 5px #ff2a00;
+}
+
+
+/* =====================================================
+   TÍTULO
+===================================================== */
+
+.form-con-cierre h3 {
+    margin: 28px 45px 25px 0;
+
+    padding-bottom: 12px;
+
+    border-bottom: 1px dashed #555;
+
+    color: #ddd;
+
+    font-size: 20px;
+
+    letter-spacing: 2px;
+
+    text-transform: uppercase;
+
+    text-shadow:
+        0 0 4px rgba(255, 255, 255, 0.2);
+}
+
+
+/* =====================================================
+   CAMPOS
+===================================================== */
+
+.form-con-cierre input,
+.form-con-cierre textarea {
+    width: 100%;
+
+    box-sizing: border-box;
+
+    margin-bottom: 18px;
+
+    padding: 13px 14px;
+
+    background: #0c0c0c;
+
+    border: 2px solid #444;
+
+    outline: none;
+
+    color: #ddd;
+
+    font-family: "Courier New", monospace;
+
+    font-size: 14px;
+
+    box-shadow:
+        inset 0 0 8px #050505;
+
+    transition:
+        border-color 0.15s ease,
+        box-shadow 0.15s ease;
+}
+
+
+/* =====================================================
+   TEXTAREA
+===================================================== */
+
+.form-con-cierre textarea {
+    min-height: 130px;
+
+    resize: vertical;
+
+    line-height: 1.5;
+}
+
+
+/* =====================================================
+   FOCUS
+===================================================== */
+
+.form-con-cierre input:focus,
+.form-con-cierre textarea:focus {
+
+    border-color: #ff2a00;
+
+    box-shadow:
+        0 0 6px rgba(255, 42, 0, 0.5),
+        inset 0 0 8px #050505;
+}
+
+
+/* =====================================================
+   PLACEHOLDER
+===================================================== */
+
+.form-con-cierre input::placeholder,
+.form-con-cierre textarea::placeholder {
+    color: #666;
+
+    text-transform: uppercase;
+}
+
+
+/* =====================================================
+   CONTENEDOR FECHA
+===================================================== */
+
+.form-con-cierre > div {
+
+    margin-top: 5px;
+}
+
+
+/* =====================================================
+   LABEL
+===================================================== */
+
+.form-con-cierre label {
+
+    display: block;
+
+    margin-bottom: 7px;
+
+    color: #999;
+
+    font-size: 11px;
+
+    font-weight: bold;
+
+    letter-spacing: 1.5px;
+
+    text-transform: uppercase;
+}
+
+
+/* =====================================================
+   FECHA
+===================================================== */
+
+.container_time {
+    width: 100%;
+}
+
+.container_time input {
+    margin-bottom: 22px;
+}
+
+
+/* =====================================================
+   BOTÓN CERRAR
+===================================================== */
+
+.btn-cancelar-absolute {
+
+    position: absolute;
+
+    top: 14px;
+    right: 16px;
+
+    width: 34px;
+    height: 34px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 0;
+
+    background: #181818;
+
+    border: 2px solid #555;
+
+    color: #aaa;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 16px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    box-shadow:
+        inset 0 0 0 1px #111,
+        2px 2px 0 #050505;
+
+    transition: all 0.15s ease;
+}
+
+
+.btn-cancelar-absolute:hover {
+
+    color: #ff2a00;
+
+    border-color: #ff2a00;
+
+    box-shadow:
+        0 0 8px rgba(255, 42, 0, 0.5),
+        2px 2px 0 #050505;
+}
+
+
+.btn-cancelar-absolute:active {
+
+    transform: translate(2px, 2px);
+
+}
+
+
+/* =====================================================
+   BOTÓN CREAR / GUARDAR
+===================================================== */
+
+.btn_crear {
+
+    width: 100%;
+
+    min-height: 48px;
+
+    margin-top: 4px;
+
+    background:
+        linear-gradient(
+            to bottom,
+            #666,
+            #333
+        );
+
+    border: 2px solid #777;
+
+    color: #eee;
+
+    font-family: "Courier New", monospace;
+
+    font-size: 13px;
+
+    font-weight: bold;
+
+    letter-spacing: 2px;
+
+    text-transform: uppercase;
+
+    cursor: pointer;
+
+    box-shadow:
+        inset 0 2px 0 #999,
+        inset 0 -3px 0 #1b1b1b,
+        4px 4px 0 #050505;
+
+    transition: all 0.1s ease;
+}
+
+
+.btn_crear:hover {
+
+    background:
+        linear-gradient(
+            to bottom,
+            #777,
+            #444
+        );
+
+    border-color: #aaa;
+
+    color: white;
+}
+
+
+.btn_crear:active {
+
+    transform: translate(3px, 3px);
+
+    box-shadow:
+        inset 0 2px 0 #222,
+        1px 1px 0 #050505;
+}
+
+
+/* =====================================================
+   SCROLL DEL FORMULARIO
+===================================================== */
+
+.form-con-cierre::-webkit-scrollbar {
+    width: 8px;
+}
+
+.form-con-cierre::-webkit-scrollbar-track {
+    background: #0a0a0a;
+}
+
+.form-con-cierre::-webkit-scrollbar-thumb {
+    background: #444;
+
+    border: 1px solid #222;
+}
+
+.form-con-cierre::-webkit-scrollbar-thumb:hover {
+    background: #666;
+}
+
+
+/* =====================================================
+   RESPONSIVE - TABLET
+===================================================== */
+
+@media (max-width: 700px) {
+
+    .container-form {
+
+        align-items: center;
+
+        padding: 15px;
+    }
+
+    .form-con-cierre {
+
+        width: 100%;
+
+        max-height: 92vh;
+
+        padding: 25px 20px;
+
+        box-shadow:
+            inset 0 0 0 2px #111,
+            inset 0 0 20px rgba(0, 0, 0, 0.8),
+            5px 5px 0 #050505;
+    }
+
+    .form-con-cierre h3 {
+
+        font-size: 17px;
+
+        margin-top: 28px;
+    }
+
+}
+
+
+/* =====================================================
+   RESPONSIVE - MÓVIL
+===================================================== */
+
+@media (max-width: 480px) {
+
+    .container-form {
+
+        padding: 10px;
+    }
+
+
+    .form-con-cierre {
+
+        width: 100%;
+
+        max-height: 94vh;
+
+        padding: 25px 15px 18px;
+    }
+
+
+    .form-con-cierre::after {
+
+        left: 20px;
+
+        font-size: 9px;
+
+        letter-spacing: 1px;
+    }
+
+
+    .form-con-cierre h3 {
+
+        margin-top: 28px;
+
+        font-size: 15px;
+
+        letter-spacing: 1px;
+
+        line-height: 1.4;
+    }
+
+
+    .form-con-cierre input,
+    .form-con-cierre textarea {
+
+        padding: 12px;
+
+        font-size: 14px;
+    }
+
+
+    .form-con-cierre textarea {
+
+        min-height: 120px;
+    }
+
+
+    .btn-cancelar-absolute {
+
+        top: 12px;
+
+        right: 12px;
+
+        width: 32px;
+
+        height: 32px;
+    }
+
+
+    .btn_crear {
+
+        min-height: 50px;
+    }
+}
+
+.fecha_limite {
+    display: flex;
+    width: 100%;
+}

@@ -1,0 +1,188 @@
+.container-task__card {
+    border: 1px solid greenyellow;;
+    padding: 16px;
+    border-radius: 8px;
+    margin-bottom: 12px;
+    background: rgba(23, 59, 61, 0.288);
+}
+
+.tiemExpired {
+    background: rgba(228, 88, 23, 0.733);
+    animation: bgExpired 3s linear infinite;
+    color: red;
+}
+
+@keyframes bgExpired {
+    0%{
+        background:  rgba(228, 88, 23, 0);
+    }
+    50%{
+        background:  rgba(228, 88, 23, 0.733);
+    }
+    100%{
+        background:  rgba(228, 88, 23, 0);
+    }
+}
+
+/* =========================================
+   CONTROL NUCLEAR
+========================================= */
+
+.nuclear-control {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px;
+
+}
+
+.nuclear-control__label {
+    font-family: "Courier New", monospace;
+    font-size: 10px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    color: #888;
+}
+
+
+/* =========================================
+   SWITCH
+========================================= */
+
+.nuclear-switch {
+    position: relative;
+
+    width: 48px;
+    height: 28px;
+
+    display: inline-block;
+
+    background: #111;
+
+    border: 2px solid #555;
+
+    box-shadow:
+        inset 0 0 0 2px #222,
+        2px 2px 0 #050505;
+
+    cursor: pointer;
+}
+
+
+/* Ocultamos checkbox original */
+
+.nuclear-switch input {
+    position: absolute;
+
+    opacity: 0;
+
+    width: 0;
+    height: 0;
+}
+
+
+/* =========================================
+   PALANCA
+========================================= */
+
+.nuclear-switch__lever {
+    position: absolute;
+
+    width: 17px;
+    height: 20px;
+
+    left: 3px;
+    top: 2px;
+
+    background: linear-gradient(
+        to bottom,
+        #d8d8d8,
+        #888
+    );
+
+    border: 2px solid #333;
+
+    box-shadow:
+        inset 1px 1px 0 #eee,
+        inset -2px -2px 0 #444,
+        2px 2px 0 #050505;
+
+    transition: transform 0.15s ease;
+}
+
+
+/* =========================================
+   ACTIVO
+========================================= */
+
+.nuclear-switch--active .nuclear-switch__lever {
+
+    transform: translateX(20px);
+
+}
+
+
+
+
+/* =========================================
+   TEXTO ESTADO
+========================================= */
+
+.nuclear-control__status {
+
+    font-family: "Courier New", monospace;
+
+    font-size: 10px;
+
+    font-weight: bold;
+
+    letter-spacing: 1px;
+
+    color: #aaa;
+}
+
+
+/* Fila superior que contiene el título y los botones */
+.card-header {
+    display: flex;
+    justify-content: space-between; /* Empuja el título a la izquierda y los botones a la derecha */
+    align-items: center;            /* Los centra verticalmente en la misma línea */
+    margin-bottom: 12px;
+}
+
+.title span {
+    font-size: 1.1rem;
+    font-weight: bold;
+}
+.container-dates{
+    margin-top: 1em;
+    border-top: 1px greenyellow solid;
+    padding: 1em 0em 0em 0em;
+    & .spans {
+        display: flex;
+        gap: 10px;
+    }
+}
+/* Contenedor exclusivo de los botones (solo ocupa su espacio) */
+.container-options__card {
+    display: flex;
+    gap: 8px; /* Espacio entre el botón de eliminar y editar */
+}
+
+/* Sección de abajo (descripción y checkbox) */
+.content {
+    border-top: 1px solid greenyellow;;
+    padding-top: 8px;
+}
+
+.container-options__card .btn_delete {
+    background: rgba(216, 38, 38, 0.712);
+    padding: 4px;
+    border: gray 2px solid;
+}
+
+.container-options__card .btn_edit{
+    background: rgba(79, 135, 255, 0.712);
+    padding: 4px;
+    border: gray 2px solid;
+}
